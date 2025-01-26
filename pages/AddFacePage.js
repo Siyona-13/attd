@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import WebcamCapture from "../components/WebcamCapture(foraddface)";
+import WebcamCapture from "../components/WebcamCapture__foraddface";
 import axios from "axios";
 import "./AddFacePage.css";
 

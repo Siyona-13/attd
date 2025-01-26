@@ -10,7 +10,7 @@ const MarkAttendancePage = () => {
     try {
       const base64Image = imageSrc.split(",")[1];
 
-      const response = await axios.post("https://backend-eta-nine-19.vercel.app/search-face", {
+      const response = await axios.post("https://backend-five-eta-21.vercel.app/search-face", {
         photo: base64Image,
       });
 

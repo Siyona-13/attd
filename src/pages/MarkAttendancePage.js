@@ -10,7 +10,7 @@ const MarkAttendancePage = () => {
     try {
       const base64Image = imageSrc.split(",")[1];
 
-      const response = await axios.post("http://localhost:5000/search-face", {
+      const response = await axios.post("https://backend-psi-three-99.vercel.app/", {
         photo: base64Image,
       });
 

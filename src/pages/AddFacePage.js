@@ -16,7 +16,7 @@ const AddFacePage = () => {
 
       const base64Image = imageSrc.split(",")[1];
       //eslint-disable-next-line
-      const response = await axios.post("https://backend-psi-three-99.vercel.app/add-face", {
+      const response = await axios.post("https://backend-eta-nine-19.vercel.app/add-face", {
         name,
         photo: base64Image,
       });

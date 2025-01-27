@@ -7,7 +7,7 @@ const AttendanceReport = () => {
   useEffect(() => {
     const fetchReport = async () => {
       try {
-        const response = await fetch("/api/attendance-report"); // Vercel backend endpoint
+        const response = await fetch("/attendance-report"); // Vercel backend endpoint
         const data = await response.json();
         if (data.success) {
           setReport(data.report);

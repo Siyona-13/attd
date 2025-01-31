@@ -30,29 +30,35 @@ const AttendanceReport = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gray-100">
-      <h1 className="text-4xl font-extrabold text-blue-600 mb-6">📋 Attendance Report</h1>
+    <div style={{ minHeight: "100vh", backgroundColor: "#f3f4f6", padding: "24px", textAlign: "center" }}>
+      <h1 style={{ fontSize: "32px", fontWeight: "bold", color: "#2563eb", marginBottom: "16px" }}>
+        📋 Attendance Report
+      </h1>
 
       {loading ? (
-        <p className="text-lg text-gray-700 font-semibold">⏳ Loading attendance records...</p>
+        <p style={{ fontSize: "18px", fontWeight: "600", color: "#374151" }}>⏳ Loading attendance records...</p>
       ) : error ? (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md max-w-lg">
+        <div style={{ backgroundColor: "#fee2e2", color: "#991b1b", padding: "10px", borderRadius: "8px", maxWidth: "400px", margin: "auto" }}>
           ❌ {error}
         </div>
       ) : (
-        <div className="w-full max-w-5xl bg-white shadow-md rounded-lg p-6">
-          <table className="table-fixed w-full border border-gray-500">
+        <div style={{ overflowX: "auto", maxWidth: "900px", margin: "auto", backgroundColor: "white", padding: "16px", borderRadius: "8px", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "18px" }}>
             <thead>
-              <tr className="bg-blue-500 text-white text-lg">
-                <th className="border border-gray-600 px-8 py-4 w-1/3 text-left">👤 Name</th>
-                <th className="border border-gray-600 px-8 py-4 w-2/3 text-left">⏰ Attendance Time</th>
+              <tr style={{ backgroundColor: "#2563eb", color: "white", fontSize: "20px" }}>
+                <th style={{ padding: "12px", border: "1px solid #d1d5db", width: "40%", textAlign: "left" }}>👤 Name</th>
+                <th style={{ padding: "12px", border: "1px solid #d1d5db", width: "60%", textAlign: "left" }}>⏰ Attendance Time</th>
               </tr>
             </thead>
             <tbody>
               {attendanceData.map((record, index) => (
-                <tr key={index} className="border border-gray-400 hover:bg-gray-200 transition duration-200">
-                  <td className="border border-gray-400 px-8 py-4 text-gray-800 font-medium">{record.name}</td>
-                  <td className="border border-gray-400 px-8 py-4 text-gray-600">{record.attendanceTime}</td>
+                <tr key={index} style={{ backgroundColor: index % 2 === 0 ? "#f9fafb" : "#ffffff", transition: "0.3s" }}>
+                  <td style={{ padding: "12px", border: "1px solid #d1d5db", fontWeight: "500", color: "#374151" }}>
+                    {record.name}
+                  </td>
+                  <td style={{ padding: "12px", border: "1px solid #d1d5db", color: "#6b7280" }}>
+                    {record.attendanceTime}
+                  </td>
                 </tr>
               ))}
             </tbody>

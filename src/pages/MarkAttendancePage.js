@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import WebcamCapture from "../components/WebcamCapture";
 import axios from "axios";
+import { Link } from "react-router-dom"; // Import Link for navigation
 import "./MarkAttendancePage.css";
 
 const MarkAttendancePage = () => {
@@ -33,11 +34,14 @@ const MarkAttendancePage = () => {
       <h1 className="title">Mark Attendance</h1>
       <WebcamCapture onCapture={handleCapture} />
       <p className="message">{message}</p>
-      
+
       {/* Hyperlink to Add Face Page */}
-      <a href="/add-face" target="" className="link">
-        Add Face
-      </a>
+      <a href="/add-face" className="link">Add Face</a>
+
+      {/* New: Hyperlink to Attendance Report Page */}
+      <Link to="/attendance-report" className="link">
+        📊 View Attendance Report
+      </Link>
     </div>
   );
 };

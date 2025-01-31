@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddFacePage from "./pages/AddFacePage"; // Adjust the path if necessary
 import MarkAttendancePage from "./pages/MarkAttendancePage"; // Adjust the path if necessary
+import AttendanceReportPage from "./pages/AttendanceReportPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
 
         {/* Add Face moved to /add-face */}
         <Route path="/add-face" element={<AddFacePage />} />
+        <Route path="/attendance-report" element={<AttendanceReportPage />} />
       </Routes>
     </Router>
   );

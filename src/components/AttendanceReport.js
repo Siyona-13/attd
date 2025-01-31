@@ -9,11 +9,11 @@ const AttendanceReport = () => {
   useEffect(() => {
     const fetchAttendanceReport = async () => {
       try {
-        const response = await axios.get("https://backend-five-eta-21.vercel.app/attendance-report"); // Change to your backend URL if deployed
+        const response = await axios.get("https://backend-five-eta-21.vercel.app/attendance-report"); // Update with your backend URL
         if (response.data.success) {
           setAttendanceData(response.data.report);
         } else {
-          setError("Failed to fetch attendance records");
+          setError("Failed to fetch attendance records.");
         }
       } catch (err) {
         setError("Error fetching data: " + err.message);
@@ -26,27 +26,33 @@ const AttendanceReport = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6">
-      <h1 className="text-3xl font-bold mb-4">📋 Attendance Report</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gray-100">
+      <h1 className="text-4xl font-extrabold text-blue-600 mb-6">📋 Attendance Report</h1>
 
       {loading ? (
-        <p className="text-lg">Loading attendance records...</p>
+        <p className="text-lg text-gray-700 font-semibold">⏳ Loading attendance records...</p>
       ) : error ? (
-        <p className="text-red-500">{error}</p>
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md max-w-lg">
+          ❌ {error}
+        </div>
       ) : (
-        <div className="overflow-x-auto">
-          <table className="table-auto border-collapse border border-gray-300">
+        <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-6">
+          <table className="table-auto w-full border-collapse border border-gray-300">
             <thead>
-              <tr className="bg-gray-200">
-                <th className="border px-4 py-2">Name</th>
-                <th className="border px-4 py-2">Attendance Time</th>
+              <tr className="bg-blue-500 text-white">
+                <th className="border px-6 py-3 text-lg">👤 Name</th>
+                <th className="border px-6 py-3 text-lg">⏰ Attendance Time</th>
               </tr>
             </thead>
             <tbody>
               {attendanceData.map((record, index) => (
-                <tr key={index} className="hover:bg-gray-100">
-                  <td className="border px-4 py-2">{record.name}</td>
-                  <td className="border px-4 py-2">{record.attendanceTime}</td>
+                <tr key={index} className="border hover:bg-gray-200 transition duration-200">
+                  <td className="border px-6 py-3 text-center text-gray-800 font-medium">
+                    {record.name}
+                  </td>
+                  <td className="border px-6 py-3 text-center text-gray-600">
+                    {record.attendanceTime}
+                  </td>
                 </tr>
               ))}
             </tbody>

@@ -9,7 +9,7 @@ const AttendanceReport = () => {
   useEffect(() => {
     const fetchAttendanceReport = async () => {
       try {
-        const response = await axios.get("https://backend-five-eta-21.vercel.app//attendance-report"); // Change to your backend URL if deployed
+        const response = await axios.get("https://backend-five-eta-21.vercel.app/attendance-report"); // Change to your backend URL if deployed
         if (response.data.success) {
           setAttendanceData(response.data.report);
         } else {
